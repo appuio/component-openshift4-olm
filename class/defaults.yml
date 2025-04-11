@@ -2,4 +2,8 @@ parameters:
   openshift4_olm:
     =_metadata:
       multi_tenant: true
-    namespace: syn-openshift4-olm
+
+    namespace: openshift-marketplace
+
+    disableAllDefaultSources: false
+    catalogSources: {}
