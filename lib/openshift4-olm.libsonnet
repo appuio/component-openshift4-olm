@@ -21,7 +21,7 @@ local catalogSource(name) = {
       'app.kubernetes.io/name': name,
     },
     name: name,
-    namespace: kap.inventory().parameters.openshift4_olm.namespace,
+    namespace: 'openshift-marketplace',
   },
 };
 

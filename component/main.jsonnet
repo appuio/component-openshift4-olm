@@ -11,6 +11,13 @@ local params = inv.parameters.openshift4_olm;
 
 local patchDisableDefaultSources = [
   espejote.managedResource('disable-default-sources', 'openshift-marketplace') {
+    metadata+: {
+      annotations+: {
+        'syn.tools/description': |||
+          Patches the OperatorHub resource to disable all default sources.
+        |||,
+      },
+    },
     spec: {
       triggers: [
         {
@@ -46,7 +53,7 @@ local patchDisableDefaultSources = [
         'managedresource.espejote.io/name': 'disable-default-sources',
       },
       name: 'disable-default-sources',
-      namespace: params.namespace,
+      namespace: 'openshift-marketplace',
     },
   },
   {
@@ -86,7 +93,7 @@ local patchDisableDefaultSources = [
       {
         kind: 'ServiceAccount',
         name: 'disable-default-sources',
-        namespace: params.namespace,
+        namespace: 'openshift-marketplace',
       },
     ],
   },

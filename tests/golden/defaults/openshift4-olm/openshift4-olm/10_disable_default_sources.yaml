@@ -1,6 +1,9 @@
 apiVersion: espejote.io/v1alpha1
 kind: ManagedResource
 metadata:
+  annotations:
+    syn.tools/description: |
+      Patches the OperatorHub resource to disable all default sources.
   labels:
     app.kubernetes.io/name: disable-default-sources
   name: disable-default-sources

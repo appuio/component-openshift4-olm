@@ -3,7 +3,5 @@ parameters:
     =_metadata:
       multi_tenant: true
 
-    namespace: openshift-marketplace
-
     disableAllDefaultSources: false
     catalogSources: {}

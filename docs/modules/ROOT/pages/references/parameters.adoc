@@ -17,8 +17,8 @@ This is useful when you want to manage catalog sources exclusively through this 
 type:: dict
 default:: {}
 
-A dictionary that defines the OperatorHub catalog sources to be created in the OpenShift cluster. 
-Each catalog source can be configured with its own settings such as source type, image, display name, and publisher information. 
+A dictionary that defines the OperatorHub catalog sources to be created in the OpenShift cluster.
+Each catalog source can be configured with its own settings such as source type, image, display name, and publisher information.
 This allows you to customize which operator catalogs are available in your cluster.
 
 
