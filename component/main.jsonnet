@@ -14,30 +14,27 @@ local patchDisableDefaultSources = [
     spec: {
       triggers: [
         {
-          name: 'interval',
-          interval: '10s',
-        },
-        {
           name: 'operatorhub',
           watchResource: {
             apiVersion: 'config.openshift.io/v1',
             kind: 'OperatorHub',
             name: 'cluster',
-            namespace: 'default',
           },
         },
       ],
       serviceAccountRef: {
         name: 'disable-default-sources',
       },
-      template: |||
-        local esp = import 'espejote.libsonnet';
-        if esp.triggerName == 'operatorhub' then esp.triggerData().resource {
-          spec: {
-            disableAllDefaultSources: true,
-          }
-        }
-      |||,
+      template: std.manifestJson({
+        apiVersion: 'config.openshift.io/v1',
+        kind: 'OperatorHub',
+        metadata: {
+          name: 'cluster',
+        },
+        spec: {
+          disableAllDefaultSources: true,
+        },
+      }),
     },
   },
   {
