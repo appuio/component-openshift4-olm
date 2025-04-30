@@ -2,18 +2,23 @@
 
 The parent key for all of the following parameters is `openshift4_olm`.
 
-== `namespace`
+== `disableAllDefaultSources`
 
 [horizontal]
-type:: string
-default:: `syn-openshift4-olm`
+type:: boolean
+default:: false
 
-The namespace in which to deploy this component.
+When set to `true`, this parameter disables all default OperatorHub catalog sources in the OpenShift cluster.
+This is useful when you want to manage catalog sources exclusively through this component and prevent any default sources from being available.
+
+== `catalogSources`
+
+[horizontal]
+type:: dict
+default:: {}
+
+A dictionary that defines the OperatorHub catalog sources to be created in the OpenShift cluster. 
+Each catalog source can be configured with its own settings such as source type, image, display name, and publisher information. 
+This allows you to customize which operator catalogs are available in your cluster.
 
 
-== Example
-
-[source,yaml]
-----
-namespace: example-namespace
-----
