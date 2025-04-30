@@ -1,3 +1,22 @@
-# Overwrite parameters here
+parameters:
+  kapitan:
+    dependencies:
+      - type: https
+        source: https://raw.githubusercontent.com/projectsyn/component-espejote/master/lib/espejote.libsonnet
+        output_path: vendor/lib/espejote.libsonnet
 
-# parameters: {...}
+  openshift4_olm:
+    disableAllDefaultSources: true
+    catalogSources:
+      certified-operators:
+        spec:
+          displayName: Certified Operators
+          grpcPodConfig:
+            securityContextConfig: restricted
+          image: registry.redhat.io/redhat/certified-operator-index:v4.16
+          priority: -200
+          publisher: Red Hat
+          sourceType: grpc
+          updateStrategy:
+            registryPoll:
+              interval: 10m
