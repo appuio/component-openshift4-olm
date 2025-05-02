@@ -39,12 +39,11 @@ metadata:
   namespace: openshift-marketplace
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/name: disable-default-sources
   name: olm:disable-default-sources
-  namespace: default
 rules:
   - apiGroups:
       - config.openshift.io/v1
@@ -54,15 +53,14 @@ rules:
       - '*'
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   labels:
     app.kubernetes.io/name: disable-default-sources
   name: olm:disable-default-sources
-  namespace: default
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: olm:disable-default-sources
 subjects:
   - kind: ServiceAccount
