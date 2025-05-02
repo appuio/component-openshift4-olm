@@ -58,13 +58,12 @@ local patchDisableDefaultSources = [
   },
   {
     apiVersion: 'rbac.authorization.k8s.io/v1',
-    kind: 'Role',
+    kind: 'ClusterRole',
     metadata: {
       labels: {
         'app.kubernetes.io/name': 'disable-default-sources',
       },
       name: 'olm:disable-default-sources',
-      namespace: 'default',
     },
     rules: [
       {
@@ -76,17 +75,16 @@ local patchDisableDefaultSources = [
   },
   {
     apiVersion: 'rbac.authorization.k8s.io/v1',
-    kind: 'RoleBinding',
+    kind: 'ClusterRoleBinding',
     metadata: {
       labels: {
         'app.kubernetes.io/name': 'disable-default-sources',
       },
       name: 'olm:disable-default-sources',
-      namespace: 'default',
     },
     roleRef: {
       apiGroup: 'rbac.authorization.k8s.io',
-      kind: 'Role',
+      kind: 'ClusterRole',
       name: 'olm:disable-default-sources',
     },
     subjects: [
