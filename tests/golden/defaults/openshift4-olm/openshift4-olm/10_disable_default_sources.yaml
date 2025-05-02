@@ -46,9 +46,9 @@ metadata:
   name: olm:disable-default-sources
 rules:
   - apiGroups:
-      - config.openshift.io/v1
+      - config.openshift.io
     resources:
-      - OperatorHub
+      - operatorhubs
     verbs:
       - '*'
 ---

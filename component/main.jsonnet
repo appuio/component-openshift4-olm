@@ -67,8 +67,8 @@ local patchDisableDefaultSources = [
     },
     rules: [
       {
-        apiGroups: [ 'config.openshift.io/v1' ],
-        resources: [ 'OperatorHub' ],
+        apiGroups: [ 'config.openshift.io' ],
+        resources: [ 'operatorhubs' ],
         verbs: [ '*' ],
       },
     ],
